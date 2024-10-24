@@ -3,7 +3,7 @@ name = "zip_downloader"
 version = "0.1.0"
 authors = ["Oleksandr Kravchenko <zartarn15@gmail.com>"]
 description = "A simple X509 creating library."
-keywords = ["zip", "archive", "compression", "http", "request", "client"]
+keywords = ["zip", "archive", "http", "request", "client"]
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/zartarn15/zip_downloader"
 
