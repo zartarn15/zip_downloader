@@ -26,10 +26,10 @@
 //! let bytes = ZipDownloader::get(url).unwrap().bytes();
 //!
 //! // Download and get 3rd line from ZIP-packed text
-//! let string = ZipDownloader::get(url).unwrap().line(3).unwrap();
+//! let line = ZipDownloader::get(url).unwrap().line(3).unwrap();
 //!
 //! // Download and get 3rd byte from ZIP packed byte file
-//! let bytes = ZipDownloader::get(url).unwrap().bytes()[3];
+//! let byte = ZipDownloader::get(url).unwrap().bytes()[3];
 //!
 //! ```
 

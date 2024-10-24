@@ -26,7 +26,7 @@ Library usage example
 ```rust
 use zip_downloader::ZipDownloader;
 
-let url = "https://github.com/zartarn15/zip_downloader/raw/refs/heads/master/tests/data/text.zip";
+let url = "https://some.url/file.zip";
 
 // Download and get ZIP file as String
 let string = ZipDownloader::get(url).unwrap().text().unwrap();
@@ -35,8 +35,8 @@ let string = ZipDownloader::get(url).unwrap().text().unwrap();
 let bytes = ZipDownloader::get(url).unwrap().bytes();
 
 // Download and get 3rd line from ZIP-packed text
-let string = ZipDownloader::get(url).unwrap().line(3).unwrap();
+let line = ZipDownloader::get(url).unwrap().line(3).unwrap();
 
 // Download and get 3rd byte from ZIP packed byte file
-let bytes = ZipDownloader::get(url).unwrap().bytes()[3];
+let byte = ZipDownloader::get(url).unwrap().bytes()[3];
 ```
