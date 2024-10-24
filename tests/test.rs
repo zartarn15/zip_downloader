@@ -8,6 +8,8 @@ const BYTES_ZIP: &str =
     "https://github.com/zartarn15/zip_downloader/raw/refs/heads/master/tests/data/bytes.zip";
 const BYTES_BIN: &str =
     "https://github.com/zartarn15/zip_downloader/raw/refs/heads/master/tests/data/bytes.bin";
+const TWO_TEXT_ZIP: &str =
+    "https://github.com/zartarn15/zip_downloader/raw/refs/heads/master/tests/data/2files_in_dir.zip";
 
 #[test]
 fn text_zip_download_test() {
@@ -31,6 +33,12 @@ fn line_zip_download_test() {
 }
 
 #[test]
+fn no_such_text_line_test() {
+    let ret = ZipDownloader::get(TEXT_ZIP).unwrap().line(225);
+    assert!(matches!(ret, Err(Error::NoSuchLine(225))));
+}
+
+#[test]
 fn get_bytes_as_text_test() {
     let ret = ZipDownloader::get(BYTES_ZIP).unwrap().text();
     assert!(matches!(ret, Err(Error::ZipToStr(_))));
@@ -50,6 +58,12 @@ fn text_file_url_test() {
 
 #[test]
 fn wrong_file_url_test() {
-    let data = ZipDownloader::get("https://github.abcdef/file.zip");
-    assert!(matches!(data, Err(Error::UrlGet(_))));
+    let ret = ZipDownloader::get("https://github.abcdef/file.zip");
+    assert!(matches!(ret, Err(Error::UrlGet(_))));
+}
+
+#[test]
+fn two_files_in_dir_test() {
+    let ret = ZipDownloader::get(TWO_TEXT_ZIP);
+    assert!(matches!(ret, Err(Error::TooManyFiles(3))));
 }

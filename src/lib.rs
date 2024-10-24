@@ -1,6 +1,7 @@
 //! # Overview
 //!
-//! A Rust crate for downloading and unpacking ZIP files, providing the content as a String or as bytes.
+//! A Rust crate for downloading and unpacking ZIP archived files,
+//! providing the content as a String or as bytes.
 //!
 //! This library features:
 //!
@@ -110,6 +111,11 @@ impl ZipDownloader {
     fn unzip(&mut self) -> Result<(), Error> {
         let reader = Cursor::new(self.file_data.clone());
         let mut archive = ZipArchive::new(reader).map_err(ZipArc)?;
+        let num = archive.len();
+        if num > 1 {
+            return Err(TooManyFiles(num));
+        }
+
         let mut file = archive.by_index(0).map_err(ZipIdx)?;
 
         std::io::copy(&mut file, &mut self.unpacked).map_err(IoCopy)?;
@@ -132,4 +138,5 @@ pub enum Error {
     HeaderStr(reqwest::header::ToStrError),
     NotZipFile(String),
     NoSuchLine(usize),
+    TooManyFiles(usize),
 }
