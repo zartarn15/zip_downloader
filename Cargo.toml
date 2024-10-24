@@ -1,6 +1,6 @@
 [package]
 name = "zip_downloader"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Oleksandr Kravchenko <zartarn15@gmail.com>"]
 description = "A simple X509 creating library."
 keywords = ["zip", "archive", "http", "request", "client"]
