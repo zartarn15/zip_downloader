@@ -1,8 +1,8 @@
 [package]
 name = "zip_downloader"
-version = "0.1.1"
+version = "0.1.2"
 authors = ["Oleksandr Kravchenko <zartarn15@gmail.com>"]
-description = "A simple X509 creating library."
+description = "A simple crate for one-line download and read of ZIP files."
 keywords = ["zip", "archive", "http", "request", "client"]
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/zartarn15/zip_downloader"

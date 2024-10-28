@@ -1,6 +1,6 @@
 # `zip_downloader`
 
-> A Rust crate for downloading and unpacking ZIP files.
+> A simple Rust crate for one-line download and read of ZIP files.
 > Provide downloaded content as a String or as bytes.
 
 ## License

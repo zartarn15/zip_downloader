@@ -1,6 +1,6 @@
 //! # Overview
 //!
-//! A Rust crate for downloading and unpacking ZIP archived files,
+//! A simple Rust crate for one-line download and read of ZIP files.
 //! providing the content as a String or as bytes.
 //!
 //! This library features:
